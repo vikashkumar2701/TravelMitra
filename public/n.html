@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Mitra</title>
+        <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <div id="map"></div>
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=asdas&callback=initMap&libraries=places&v=weekly"
+    async
+  ></script> 
+
+  <style>
+         
+#map {
+  height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+  </style>
+
+
+    </head>
+    <body>
+        <div id="map"></div>
+    <script>
+        
+     
+    
+    let map;
+let service;
+let infowindow;
+
+
+function initMap() {
+    var initCoords=function() {
+        if ( navigator.geolocation ) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        }
+    }
+    var showError=function(e){
+        alert(e)
+    };
+
+    var showPosition=function( position ) {
+        var lat = position.coords.latitude;
+        var long =  position.coords.longitude;
+        var latlng=new google.maps.LatLng(lat,long);
+
+        var map = new google.maps.Map( document.getElementById('map'), {
+            center: latlng,
+            zoom: 12
+        });
+    }
+    
+    </script>
+    
+    </body>
+   
+
+</html>
+
+
